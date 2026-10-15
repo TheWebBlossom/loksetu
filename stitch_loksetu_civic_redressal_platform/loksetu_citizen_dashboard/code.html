@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LokSetu Citizen Dashboard - Gram Panchayat &amp; Civic Portal</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdea7",
+            "on-background": "#131e19",
+            "surface-variant": "#d9e5de",
+            "surface": "#f0fcf4",
+            "primary-fixed": "#a4f4c3",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#e4f1e9",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#d9e5de",
+            "on-secondary-container": "#007148",
+            "on-tertiary-fixed": "#271900",
+            "on-tertiary-fixed-variant": "#5e4200",
+            "secondary-fixed": "#8af8bd",
+            "on-tertiary-container": "#ffd07c",
+            "inverse-primary": "#88d7a8",
+            "on-secondary-fixed": "#002112",
+            "surface-tint": "#186c45",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#28332e",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#005131",
+            "outline-variant": "#bfc9c0",
+            "inverse-on-surface": "#e7f4ec",
+            "on-primary-fixed": "#002111",
+            "surface-bright": "#f0fcf4",
+            "on-surface": "#131e19",
+            "secondary-fixed-dim": "#6ddba2",
+            "on-surface-variant": "#3f4942",
+            "surface-dim": "#d0ddd5",
+            "on-primary-fixed-variant": "#005232",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#99e9b9",
+            "background": "#f0fcf4",
+            "secondary-container": "#87f5ba",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#005233",
+            "surface-container-low": "#eaf7ef",
+            "primary-fixed-dim": "#88d7a8",
+            "surface-container-high": "#dfebe3",
+            "secondary": "#006c45",
+            "tertiary": "#5d4100",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#f8bd45",
+            "outline": "#6f7a71",
+            "primary-container": "#176b45",
+            "tertiary-container": "#7b5700"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter-lg": "2rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-lg": "4rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-full flex flex-col font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar (Shared Component Anchor) -->
+<header class="sticky top-0 z-50 bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm transition-all duration-150">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+<!-- Logo & Product Brand -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-3" href="#">
+<img alt="LokSetu Civic Brandmark" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VgbsV0sMSf18LQcqvU2A3SfFNXXEQzdcbkPnk0UfclH-BtAM0TQPKavVFdebAXQtLXz7FTDdm5YynPHR6iinYgE9Secrew7_EvcN5u8e5rKqssmdsFhk-qA9DOAD0IKhjr_CUHu_QVnXAVaTH5Gpul-o0IQvxnBrA1IuLNR15wdL55hPFNWdTBn49NpU0pTWBWxhtHLF_nx67VA4qD3PemaRff-7oBARs4_l7s9zxgI5TyxNpqPXVtD20"/>
+<div class="hidden sm:flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-none">LokSetu</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-wide">Digital Public Grievance Portal</span>
+</div>
+</a>
+</div>
+<!-- Navigation Links (Context: Citizen Portal Active) -->
+<nav class="hidden xl:flex items-center gap-7">
+<a class="text-on-surface-variant hover:text-on-surface pb-1 text-label-lg font-label-lg transition-colors duration-150" href="#">Public Grievances</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 text-label-lg font-label-lg" href="#">Citizen Portal</a>
+<a class="text-on-surface-variant hover:text-on-surface pb-1 text-label-lg font-label-lg transition-colors duration-150" href="#">Authority &amp; Panchayat</a>
+<a class="text-on-surface-variant hover:text-on-surface pb-1 text-label-lg font-label-lg transition-colors duration-150" href="#">Administration</a>
+</nav>
+<!-- Right Header Cluster: Citizen Profile & Actions -->
+<div class="flex items-center gap-3 sm:gap-4">
+<!-- Language Selector -->
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant/50 text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">translate</span>
+<span class="hidden md:inline">हिन्दी / EN</span>
+</button>
+<!-- Notification Bell with Dot -->
+<div class="relative">
+<button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-150">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[10px] font-bold text-on-error">3</span>
+</button>
+</div>
+<!-- Citizen Profile Badge -->
+<div class="hidden md:flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="w-7 h-7 rounded-full bg-primary-container text-on-primary font-bold flex items-center justify-center text-label-sm shadow-sm">
+            RK
+          </div>
+<div class="flex flex-col text-left">
+<span class="text-label-md font-label-md font-bold text-on-surface leading-snug">Rajesh Kumar</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant leading-none">Rampur GP, Ward 4</span>
+</div>
+</div>
+<!-- Primary CTA: Submit New Grievance -->
+<button class="hidden sm:flex items-center gap-2 px-4 py-2 bg-primary-container text-on-primary rounded-lg text-label-lg font-label-lg font-semibold shadow-sm hover:bg-primary transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Submit Grievance</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Shell Layout: Sidebar + Dashboard Canvas -->
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 flex gap-8">
+<!-- Left Navigation Sidebar -->
+<aside class="w-64 shrink-0 hidden lg:flex flex-col justify-between py-2">
+<div class="space-y-6">
+<!-- Ward Administration Info Micro-Card -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm flex items-center gap-3">
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[22px]">account_balance</span>
+</div>
+<div class="min-w-0">
+<p class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Gram Panchayat Console</p>
+<p class="text-label-md font-label-md font-bold text-on-surface truncate">Rampur Ward #4</p>
+</div>
+</div>
+<!-- Main Navigation Links -->
+<nav class="space-y-1">
+<!-- Active Tab: Overview -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-primary-container text-on-primary font-semibold shadow-sm text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Overview</span>
+</a>
+<!-- Submit Complaint -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">post_add</span>
+<span>Submit Complaint</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span>
+</a>
+<!-- My Complaints -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">folder_managed</span>
+<span>My Complaints</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-bold text-label-sm">4</span>
+</a>
+<!-- Track Complaint -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">manage_search</span>
+<span>Track Complaint</span>
+</a>
+<!-- Public Issues Directory -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">public</span>
+<span>Public Issues Directory</span>
+</a>
+<!-- Resolved Proofs -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Resolved Proofs</span>
+</a>
+<!-- Notifications -->
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+<span>Notifications</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-bold text-label-sm">3</span>
+</a>
+<!-- Profile & Locality -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors duration-150 text-label-lg font-label-lg" href="#">
+<span class="material-symbols-outlined text-[20px]">person_pin_circle</span>
+<span>Profile &amp; Locality</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Bottom Cluster -->
+<div class="pt-6 border-t border-outline-variant/30 space-y-2">
+<a class="flex items-center gap-3 px-3.5 py-2 text-on-surface-variant hover:text-primary transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>Toll-free 1800-LOK-SETU</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2 text-error hover:bg-error-container/20 rounded-lg transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Workload Canvas -->
+<main class="flex-1 min-w-0 space-y-6">
+<!-- Welcome Header & Locality Meta -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">
+            Namaste, Rajesh Kumar 👋
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            Welcome back to your civic dashboard. Track ongoing Panchayat resolutions or lodge new community reports.
+          </p>
+</div>
+<div class="self-start md:self-auto flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface font-medium text-label-md">
+<span class="material-symbols-outlined text-primary text-[20px]">location_on</span>
+<span>Rampur Gram Panchayat, Fatehpur District, UP</span>
+</div>
+</div>
+<!-- Quick Action Banner (Bento Hero Action) -->
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-r from-primary to-primary-container p-6 sm:p-7 text-on-primary shadow-sm">
+<div class="relative z-10 max-w-2xl space-y-3">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/30 text-on-primary-container text-label-sm font-semibold tracking-wide backdrop-blur-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Fast-Track Redressal System</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold tracking-tight text-on-primary">
+            Facing a civic issue in your ward?
+          </h2>
+<p class="font-body-md text-body-md text-on-primary/90 leading-relaxed">
+            Report road damage, water pipeline breakdown, or garbage accumulation in 60 seconds with instant photo geo-tagging.
+          </p>
+<div class="pt-2 flex flex-wrap gap-3">
+<button class="inline-flex items-center gap-2 px-5 py-2.5 bg-surface-container-lowest text-primary rounded-lg text-label-lg font-label-lg font-bold shadow-sm hover:bg-surface transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">note_add</span>
+<span>File New Grievance</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 text-on-primary rounded-lg text-label-lg font-label-lg font-semibold border border-white/20 transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]">history</span>
+<span>Review Past Grievances</span>
+</button>
+</div>
+</div>
+<!-- Decorative Institutional Background Shape -->
+<div class="absolute right-0 bottom-0 translate-x-8 translate-y-8 opacity-10 pointer-events-none text-white">
+<span class="material-symbols-outlined text-[220px]">account_balance</span>
+</div>
+</div>
+<!-- Summary Metric Cards (4 Cards Grid) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Metric 1: Total Submitted -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-medium text-on-surface-variant">Total Submitted</span>
+<div class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">folder</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">6</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Complaints filed in 2025</p>
+</div>
+</div>
+<!-- Metric 2: In Progress / Assigned -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-medium text-on-surface-variant">In Progress / Assigned</span>
+<div class="p-2 rounded-lg bg-blue-50 text-blue-700">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">2</div>
+<p class="text-body-sm font-body-sm text-blue-700 font-medium mt-1">1 Crew on site today</p>
+</div>
+</div>
+<!-- Metric 3: Under Verification -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-medium text-on-surface-variant">Under Verification</span>
+<div class="p-2 rounded-lg bg-amber-50 text-amber-700">
+<span class="material-symbols-outlined text-[20px]">fact_check</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">1</div>
+<p class="text-body-sm font-body-sm text-amber-700 font-medium mt-1">Awaiting photo approval</p>
+</div>
+</div>
+<!-- Metric 4: Resolved with Proof -->
+<div class="bg-surface-container-lowest p-5 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-medium text-on-surface-variant">Resolved with Proof</span>
+<div class="p-2 rounded-lg bg-green-50 text-green-700">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">3</div>
+<p class="text-body-sm font-body-sm text-green-700 font-medium mt-1">100% verified closure</p>
+</div>
+</div>
+</div>
+<!-- Spotlight & Side Widget Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Active Grievance Tracking Spotlight Card (2 Cols) -->
+<div class="xl:col-span-2 bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm space-y-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-outline-variant/20">
+<div class="flex items-center gap-3">
+<div class="p-2.5 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[24px]">water_drop</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-mono text-label-md font-label-md px-2 py-0.5 rounded bg-surface-container font-semibold text-on-surface">LOK-2025-UP-8841</span>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-blue-100 text-blue-800 font-semibold">In Progress</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">
+                  Drinking Water Submersible Pump Failure near Primary School
+                </h3>
+</div>
+</div>
+<button class="self-start sm:self-auto text-primary text-label-md font-label-md font-semibold hover:underline flex items-center gap-1">
+<span>Full Docket</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Stage Indicator & Live status -->
+<div class="bg-surface-container-low p-4 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="text-label-md font-label-md font-bold text-on-surface">Current Stage:</span>
+<span class="text-label-md font-label-md text-primary font-semibold">In Progress - Crew Dispatched to Site</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Target Resolution: Oct 16, 2025 (48h remaining)</span>
+</div>
+</div>
+<!-- Interactive Mini Timeline Rail -->
+<div class="relative pt-4 pb-2">
+<div class="hidden sm:block absolute top-8 left-6 right-6 h-1 bg-surface-container"></div>
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-4 relative">
+<!-- Node 1: Completed -->
+<div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
+<div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-label-sm font-bold shadow z-10">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-bold text-on-surface">Registered</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Oct 12, 09:30 AM</p>
+</div>
+</div>
+<!-- Node 2: Completed -->
+<div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
+<div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-label-sm font-bold shadow z-10">
+<span class="material-symbols-outlined text-[18px]">done</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-bold text-on-surface">Assigned to JE</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Jal Nigam • Oct 13</p>
+</div>
+</div>
+<!-- Node 3: Current Active Stage -->
+<div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary ring-4 ring-primary-container/20 flex items-center justify-center text-label-sm font-bold shadow z-10">
+<span class="material-symbols-outlined text-[18px]">construction</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-bold text-primary">Work Order Issued</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Crew En Route • Oct 14</p>
+</div>
+</div>
+<!-- Node 4: Future Pending Stage -->
+<div class="flex sm:flex-col items-center sm:text-center gap-3 sm:gap-2 opacity-60">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant flex items-center justify-center text-label-sm font-bold z-10">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-medium text-on-surface">Closure &amp; Proof</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Expected Oct 16</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Assigned Officer Authority Block -->
+<div class="p-4 rounded-xl bg-surface-container/50 border border-outline-variant/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/20 text-primary flex items-center justify-center font-bold text-label-lg">
+                SV
+              </div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Designated Field Official</p>
+<p class="text-label-lg font-label-lg font-bold text-on-surface">Er. Suresh Verma</p>
+<p class="text-label-sm font-label-sm text-outline">Junior Engineer, Jal Sansthan (Fatehpur Division)</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container transition-colors duration-150 text-label-md font-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Send Query</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest text-on-surface font-semibold hover:bg-surface-dim transition-colors duration-150 text-label-md font-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">call</span>
+<span>Direct Desk</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Notifications & Updates Widget (1 Col) -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 shadow-sm flex flex-col justify-between space-y-4">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">campaign</span>
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Civic Updates</h3>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Rampur Ward 4</span>
+</div>
+<!-- Notification Feed Items -->
+<div class="mt-4 space-y-4">
+<!-- Notification Item 1 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800">Supply Update</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2h ago</span>
+</div>
+<p class="text-label-md font-label-md font-semibold text-on-surface">
+                  Water supply repair parts procured by GP Secretary
+                </p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Components for pump repair arrived at Rampur Store; installation scheduled for morning shift.
+                </p>
+</div>
+<!-- Notification Item 2 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-green-100 text-green-800">Resolution Proof</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-label-md font-label-md font-semibold text-on-surface">
+                  Pothole repair at Main Bazar marked Resolved
+                </p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Public Works crew has finished macadam patching.
+                </p>
+<a class="inline-flex items-center gap-1 text-label-sm font-label-sm font-bold text-primary hover:underline pt-1" href="#">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+<span>Click to inspect before/after photos</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Widget Footer Link -->
+<a class="pt-3 border-t border-outline-variant/20 text-center text-label-md font-label-md text-primary font-bold hover:underline block" href="#">
+            View All Ward Announcements (7)
+          </a>
+</div>
+</div>
+<!-- Recent Complaints Data Table Component -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+<!-- Table Header & Controls -->
+<div class="p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant/20">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">
+              Recent Complaints Registry
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Live status from Gram Panchayat grievance log and departmental ticketing feeds.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-label-md font-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+<span>Filter Status</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low text-label-md font-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Slip</span>
+</button>
+</div>
+</div>
+<!-- Responsive Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30 text-label-md font-label-md text-on-surface-variant">
+<th class="py-3 px-4 font-semibold">Complaint ID</th>
+<th class="py-3 px-4 font-semibold">Category</th>
+<th class="py-3 px-4 font-semibold">Location / Landmark</th>
+<th class="py-3 px-4 font-semibold">Date Filed</th>
+<th class="py-3 px-4 font-semibold">Status Badge</th>
+<th class="py-3 px-4 font-semibold">SLA Status</th>
+<th class="py-3 px-4 font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-md font-body-md">
+<!-- Row 1: In Progress -->
+<tr class="hover:bg-surface-container-low/50 transition-colors duration-150">
+<td class="py-3.5 px-4 font-mono text-label-md font-bold text-on-surface">
+                  LOK-2025-UP-8841
+                </td>
+<td class="py-3.5 px-4 font-medium text-on-surface">
+                  Water Supply &amp; Sanitation
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm">
+                  Submersible Pump, Primary School
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm whitespace-nowrap">
+                  12 Oct 2025
+                </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-semibold bg-blue-100 text-blue-800">
+                    In Progress
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-label-sm font-label-sm text-green-700 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                    On Track (48h left)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-all duration-150 text-label-md font-label-md font-semibold">
+                    View Progress
+                  </button>
+</td>
+</tr>
+<!-- Row 2: Resolved with Proof -->
+<tr class="hover:bg-surface-container-low/50 transition-colors duration-150">
+<td class="py-3.5 px-4 font-mono text-label-md font-bold text-on-surface">
+                  LOK-2025-UP-7193
+                </td>
+<td class="py-3.5 px-4 font-medium text-on-surface">
+                  Roads &amp; Infrastructure
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm">
+                  Main Bazar Chowk Potholes
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm whitespace-nowrap">
+                  04 Oct 2025
+                </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-semibold bg-green-100 text-green-800">
+                    Resolved with Proof
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-green-600">check_circle</span>
+                    Closed in 72h
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-all duration-150 text-label-md font-label-md font-semibold">
+                    View Progress
+                  </button>
+</td>
+</tr>
+<!-- Row 3: Under Review -->
+<tr class="hover:bg-surface-container-low/50 transition-colors duration-150">
+<td class="py-3.5 px-4 font-mono text-label-md font-bold text-on-surface">
+                  LOK-2025-UP-9102
+                </td>
+<td class="py-3.5 px-4 font-medium text-on-surface">
+                  Solid Waste Management
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm">
+                  Garbage Dump near Canal Bridge
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm whitespace-nowrap">
+                  14 Oct 2025
+                </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-semibold bg-amber-100 text-amber-800">
+                    Under Review
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-label-sm font-label-sm text-amber-700 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                    Verification Pending
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-all duration-150 text-label-md font-label-md font-semibold">
+                    View Progress
+                  </button>
+</td>
+</tr>
+<!-- Row 4: Assigned -->
+<tr class="hover:bg-surface-container-low/50 transition-colors duration-150">
+<td class="py-3.5 px-4 font-mono text-label-md font-bold text-on-surface">
+                  LOK-2025-UP-6401
+                </td>
+<td class="py-3.5 px-4 font-medium text-on-surface">
+                  Street Lighting &amp; Power
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm">
+                  Pole 14 LED Unit, Ward 4 Lane 2
+                </td>
+<td class="py-3.5 px-4 text-on-surface-variant text-body-sm whitespace-nowrap">
+                  10 Oct 2025
+                </td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-semibold bg-purple-100 text-purple-800">
+                    Assigned
+                  </span>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<span class="text-label-sm font-label-sm text-green-700 font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span>
+                    Within SLA (24h left)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1 rounded bg-surface-container text-primary hover:bg-primary hover:text-on-primary transition-all duration-150 text-label-md font-label-md font-semibold">
+                    View Progress
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Counter Footer -->
+<div class="p-4 bg-surface-container-low border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-label-md font-label-md text-on-surface-variant">
+<span>Showing 4 of 6 Total Active &amp; Historical Records</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded border border-outline-variant/60 bg-surface-container-lowest disabled:opacity-50" disabled="">Previous</button>
+<span class="px-2 font-bold text-on-surface">1</span>
+<button class="px-3 py-1 rounded border border-outline-variant/60 bg-surface-container-lowest hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Accessible Civic Institutional Footer (Shared Component Anchor) -->
+<footer class="mt-auto bg-surface-container-high border-t border-outline-variant/40">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Copyright -->
+<div class="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
+<span class="font-title-md text-title-md font-semibold text-primary">LokSetu</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2025 LokSetu Digital Public Platform. Ministry of Panchayati Raj &amp; Public Grievances. All Rights Reserved.
+        </p>
+</div>
+<!-- Institutional Direct Compliance Links -->
+<nav class="flex flex-wrap justify-center md:justify-end items-center gap-x-6 gap-y-2 font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">Citizen Charter</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">Grievance Redressal Flow</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">Right to Information</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">National Portal of India</a>
+<a class="text-on-surface-variant hover:text-primary hover:underline transition-colors duration-150" href="#">Accessibility Options</a>
+<a class="text-primary font-semibold hover:underline transition-colors duration-150" href="#">Toll-free 1800-LOK-SETU</a>
+</nav>
+</div>
+</footer>
+</body></html>

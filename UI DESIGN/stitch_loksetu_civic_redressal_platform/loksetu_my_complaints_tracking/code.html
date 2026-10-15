@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LokSetu - My Complaints &amp; Live Grievance Tracking</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdea7",
+            "on-background": "#131e19",
+            "surface-variant": "#d9e5de",
+            "surface": "#f0fcf4",
+            "primary-fixed": "#a4f4c3",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#e4f1e9",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#d9e5de",
+            "on-secondary-container": "#007148",
+            "on-tertiary-fixed": "#271900",
+            "on-tertiary-fixed-variant": "#5e4200",
+            "secondary-fixed": "#8af8bd",
+            "on-tertiary-container": "#ffd07c",
+            "inverse-primary": "#88d7a8",
+            "on-secondary-fixed": "#002112",
+            "surface-tint": "#186c45",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#28332e",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#005131",
+            "outline-variant": "#bfc9c0",
+            "inverse-on-surface": "#e7f4ec",
+            "on-primary-fixed": "#002111",
+            "surface-bright": "#f0fcf4",
+            "on-surface": "#131e19",
+            "secondary-fixed-dim": "#6ddba2",
+            "on-surface-variant": "#3f4942",
+            "surface-dim": "#d0ddd5",
+            "on-primary-fixed-variant": "#005232",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#99e9b9",
+            "background": "#f0fcf4",
+            "secondary-container": "#87f5ba",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#005233",
+            "surface-container-low": "#eaf7ef",
+            "primary-fixed-dim": "#88d7a8",
+            "surface-container-high": "#dfebe3",
+            "secondary": "#006c45",
+            "tertiary": "#5d4100",
+            "on-error": "#ffffff",
+            "tertiary-fixed-dim": "#f8bd45",
+            "outline": "#6f7a71",
+            "primary-container": "#176b45",
+            "tertiary-container": "#7b5700"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter-lg": "2rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-lg": "4rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "title-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-md": ["22px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-md": ["15px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "headline-xl-mobile": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TOP APP BAR (Shared Components: TopNavBar) -->
+<header class="docked full-width top-0 z-50 bg-surface-container-lowest dark:bg-inverse-surface shadow-sm dark:shadow-none">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+<!-- Logo & Brandmark -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group" href="#">
+<img alt="LokSetu Civic Brandmark" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VgbsV0sMSf18LQcqvU2A3SfFNXXEQzdcbkPnk0UfclH-BtAM0TQPKavVFdebAXQtLXz7FTDdm5YynPHR6iinYgE9Secrew7_EvcN5u8e5rKqssmdsFhk-qA9DOAD0IKhjr_CUHu_QVnXAVaTH5Gpul-o0IQvxnBrA1IuLNR15wdL55hPFNWdTBn49NpU0pTWBWxhtHLF_nx67VA4qD3PemaRff-7oBARs4_l7s9zxgI5TyxNpqPXVtD20"/>
+</a>
+<div class="hidden sm:flex flex-col border-l border-outline-variant/40 pl-3">
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">National Grievance Portal</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Govt. of India &amp; Panchayati Raj</span>
+</div>
+</div>
+<!-- Desktop Navigation Links (Active: Citizen Portal) -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant pb-1 hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150" href="#">Public Grievances</a>
+<a class="font-label-lg text-label-lg text-primary dark:text-inverse-primary font-bold border-b-2 border-primary dark:border-inverse-primary pb-1" href="#">Citizen Portal</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant pb-1 hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150" href="#">Authority &amp; Panchayat</a>
+<a class="font-label-lg text-label-lg text-on-surface-variant dark:text-surface-variant pb-1 hover:text-on-surface dark:hover:text-inverse-on-surface transition-colors duration-150" href="#">Administration</a>
+</nav>
+<!-- Trailing Action Buttons & Quick Controls -->
+<div class="flex items-center gap-3">
+<!-- Quick Action Buttons -->
+<a class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-primary text-primary hover:bg-primary/5 transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]">search</span>
+<span>Track Status</span>
+</a>
+<a class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>File Grievance</span>
+</a>
+<!-- Icons Actions -->
+<div class="flex items-center border-l border-outline-variant/30 pl-2 gap-1 text-on-surface-variant">
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors duration-150 relative" title="Notifications">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors duration-150" title="Language selection">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-low transition-colors duration-150" title="Help">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<!-- Citizen Profile Avatar -->
+<div class="ml-1 w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-semibold text-xs border border-primary/20">
+            RK
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- BREADCRUMB BAR -->
+<div class="bg-surface-container-low border-b border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between text-body-sm">
+<nav aria-label="Breadcrumb" class="flex items-center space-x-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span>Citizen Portal</span>
+</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">My Complaints</a>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Complaint Details &amp; Live Audit Rail</span>
+</nav>
+<div class="hidden sm:flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+          National Citizen Redressal SLA Active
+        </span>
+</div>
+</div>
+</div>
+<!-- MAIN VIEWPORT (DASHBOARD SPLIT LAYOUT) -->
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT COLUMN: COMPLAINT MANAGEMENT & LIST (5 Cols) -->
+<section class="lg:col-span-5 space-y-4">
+<!-- Search & Control Header Card -->
+<div class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 shadow-sm space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">folder_managed</span>
+              My Registered Grievances
+            </h2>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-bold">4 Active</span>
+</div>
+<!-- Search Input -->
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</span>
+<input class="block w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-body-sm font-body-sm focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-outline" placeholder="Search by Complaint ID (e.g. LOK-2025-UP-8841) or keyword..." type="text" value="LOK-2025-UP-8841"/>
+</div>
+<!-- Filter Tabs -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-label-sm font-label-sm scrollbar-none">
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors shrink-0">
+              All (4)
+            </button>
+<button class="px-2.5 py-1 rounded-md bg-secondary-container text-on-secondary-container font-semibold shadow-xs shrink-0 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              In Progress (1)
+            </button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors shrink-0">
+              Under Review (1)
+            </button>
+<button class="px-2.5 py-1 rounded-md text-on-surface-variant hover:bg-surface-container transition-colors shrink-0">
+              Resolved (2)
+            </button>
+</div>
+<!-- Secondary Filters: Category & Date -->
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-outline-variant/20">
+<div class="relative">
+<select class="w-full text-label-sm font-label-sm py-1.5 pl-2 pr-7 bg-surface-container-low border border-outline-variant/30 rounded-md text-on-surface-variant focus:border-primary focus:ring-0">
+<option selected="">Category: All Public Utilities</option>
+<option>Drinking Water Supply</option>
+<option>Rural Roadways &amp; PWD</option>
+<option>Panchayat Sanitation</option>
+<option>Power &amp; Electricity</option>
+</select>
+</div>
+<div class="relative">
+<select class="w-full text-label-sm font-label-sm py-1.5 pl-2 pr-7 bg-surface-container-low border border-outline-variant/30 rounded-md text-on-surface-variant focus:border-primary focus:ring-0">
+<option selected="">Date: Last 30 Days</option>
+<option>Quarter 3 (2025)</option>
+<option>Year 2025</option>
+<option>Custom Range</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Complaint List Stack -->
+<div class="space-y-3">
+<!-- CARD 1: ACTIVE SELECTED COMPLAINT -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border-2 border-primary shadow-md relative overflow-hidden transition-all duration-150">
+<div class="absolute top-0 right-0 left-0 h-1 bg-primary"></div>
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-label-sm font-semibold text-primary bg-primary-fixed/40 px-2 py-0.5 rounded">
+                    LOK-2025-UP-8841
+                  </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm bg-blue-100 text-blue-800 font-semibold">
+                    In Progress
+                  </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-semibold line-clamp-2">
+                  Drinking Water Submersible Pump Failure near Primary School
+                </h3>
+</div>
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-1">check_circle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 line-clamp-2">
+              Pump completely non-functional causing severe potable water shortage for over 320 villagers and school midday meals.
+            </p>
+<div class="mt-3 pt-3 border-t border-outline-variant/20 flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">location_on</span>
+<span>Rampur Ward 4, Haswa</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Updated 2h ago</span>
+</div>
+</div>
+</article>
+<!-- CARD 2: Under Review Complaint -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 hover:border-outline-variant/60 shadow-sm transition-all duration-150 cursor-pointer">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-label-sm font-semibold text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                    LOK-2025-UP-7910
+                  </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm bg-amber-100 text-amber-800 font-semibold">
+                    Under Review
+                  </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-medium hover:text-primary transition-colors">
+                  Waterlogging on Main Link Road toward Primary Health Center
+                </h3>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 line-clamp-1">
+              Drainage blockage causing stagnant water accumulation post monsoon showers.
+            </p>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Majre Gaon</span>
+<span>Oct 08, 2025</span>
+</div>
+</article>
+<!-- CARD 3: Resolved Complaint -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 hover:border-outline-variant/60 shadow-sm transition-all duration-150 cursor-pointer opacity-90">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-label-sm font-semibold text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                    LOK-2025-UP-6429
+                  </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm bg-green-100 text-green-800 font-semibold">
+                    Resolved
+                  </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-medium hover:text-primary transition-colors">
+                  Solar Street Lamp Inverter Replacement at Gram Chauraha
+                </h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 line-clamp-1">
+              Battery failure replaced by Gram Panchayat technician. Verified by Ward Pradhan.
+            </p>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Ward 2 Chauraha</span>
+<span>Resolved Oct 02, 2025</span>
+</div>
+</article>
+<!-- CARD 4: Resolved Complaint -->
+<article class="bg-surface-container-lowest rounded-xl p-4 border border-outline-variant/30 hover:border-outline-variant/60 shadow-sm transition-all duration-150 cursor-pointer opacity-90">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-mono text-label-sm font-semibold text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                    LOK-2025-UP-5102
+                  </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm bg-green-100 text-green-800 font-semibold">
+                    Resolved
+                  </span>
+</div>
+<h3 class="font-title-md text-title-md text-on-surface font-medium hover:text-primary transition-colors">
+                  Disinfection &amp; Bleaching Powder Spray in Anganwadi Quarters
+                </h3>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">location_on</span> Anganwadi Sec-B</span>
+<span>Resolved Sep 21, 2025</span>
+</div>
+</article>
+</div>
+<!-- Quick Helplines Box -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/30 text-on-surface-variant space-y-2">
+<div class="flex items-center gap-2 font-title-md text-title-md text-primary font-semibold">
+<span class="material-symbols-outlined">call</span>
+<span>Gram Panchayat Grievance Assistance</span>
+</div>
+<p class="font-body-sm text-body-sm">
+            Need phone support or Hindi voice assistance? Dial toll-free helpline <strong class="text-on-surface">1800-LOK-SETU</strong> or send WhatsApp tracking code to <strong class="text-on-surface">+91-94500-XXXXX</strong>.
+          </p>
+</div>
+</section>
+<!-- RIGHT COLUMN: COMPREHENSIVE GRIEVANCE TRACKING DOSSIER (7 Cols) -->
+<section class="lg:col-span-7 space-y-6">
+<!-- DOSSIER HEADER CARD -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm space-y-4">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Complaint Reference ID</span>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container rounded-lg border border-outline-variant/40">
+<span class="font-mono text-label-lg font-bold text-primary">LOK-2025-UP-8841</span>
+<button class="p-1 hover:bg-surface-container-highest rounded transition-colors text-outline-variant hover:text-on-surface" onclick="navigator.clipboard.writeText('LOK-2025-UP-8841'); alert('Complaint ID copied to clipboard!')" title="Copy Complaint ID">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Public / Private Citizen Privacy Pill -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
+<span>Complainant Identity Protected • Publicly Trackable</span>
+</div>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-semibold text-on-surface">
+              Drinking Water Submersible Pump Failure near Primary School
+            </h1>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mt-2 font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-primary">water_drop</span>
+                Drinking Water Supply
+              </span>
+<span class="text-outline">•</span>
+<span>Sub-category: Motor &amp; Pipe Breakdown</span>
+<span class="text-outline">•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px] text-outline">pin_drop</span>
+                Rampur Ward 4, Block Haswa, District Fatehpur
+              </span>
+</div>
+</div>
+<!-- Status Banner -->
+<div class="p-3.5 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-between flex-wrap gap-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-blue-600 animate-pulse"></span>
+<div>
+<span class="font-label-lg text-label-lg text-blue-900 font-bold block">Status: In Progress - Field Crew On Site</span>
+<span class="font-body-sm text-body-sm text-blue-700">Official SLA Target: Resolution expected by Oct 16, 2025 (48h SLA Active)</span>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 px-3 py-1 bg-white border border-blue-300 rounded-md text-blue-800 font-label-md text-label-md hover:bg-blue-50 transition-colors shadow-xs" href="#audit-rail">
+<span class="material-symbols-outlined text-[16px]">timeline</span>
+<span>Jump to Audit Log</span>
+</a>
+</div>
+</div>
+<!-- VISUAL REDRESSAL MILESTONE RAIL (VERTICAL TIMELINE WITH RICH METADATA) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm space-y-6" id="audit-rail">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_tree</span>
+                Visual Redressal Milestone Rail
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Immutable civic blockchain audit log certified under Panchayati Raj digital protocol.</p>
+</div>
+<span class="font-mono text-label-sm text-label-sm bg-surface-container px-2.5 py-1 rounded text-primary font-semibold">
+              Step 4 of 5 Active
+            </span>
+</div>
+<!-- Vertical Timeline Steps -->
+<div class="relative pl-6 sm:pl-8 space-y-8 before:content-[''] before:absolute before:left-3 sm:before:left-4 before:top-3 before:bottom-3 before:w-0.5 before:bg-outline-variant/40">
+<!-- STAGE 1: Completed -->
+<div class="relative group">
+<!-- Node Icon -->
+<div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3.5 border border-outline-variant/20">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">1. Complaint Registered</span>
+<span class="font-label-sm text-label-sm text-outline">Oct 12, 2025 • 09:30 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Submitted via LokSetu Citizen Portal by Complainant Rajesh Kumar. Geo-location stamped at Lat 25.9261° N, Long 80.8122° E (Primary School Rampur).
+                </p>
+<div class="mt-2 flex items-center gap-2 text-label-sm font-label-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-[16px]">gps_fixed</span>
+<span>GPS Timestamp &amp; Citizen Biometric / OTP Authenticated</span>
+</div>
+</div>
+</div>
+<!-- STAGE 2: Completed -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3.5 border border-outline-variant/20">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">2. Routed &amp; Acknowledged</span>
+<span class="font-label-sm text-label-sm text-outline">Oct 12, 2025 • 11:45 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Panchayat Secretary Shri Ram Singh acknowledged grievance receipt, categorized severity as "Priority - Potable Drinking Water Supply", and forwarded dossier to Jal Sansthan District Division.
+                </p>
+<span class="inline-block mt-2 font-mono text-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">
+                  Dispatch Token: DISP-JAL-FATEHPUR-102
+                </span>
+</div>
+</div>
+<!-- STAGE 3: Completed -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3.5 border border-outline-variant/20">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">3. Assigned to Executive Official</span>
+<span class="font-label-sm text-label-sm text-outline">Oct 13, 2025 • 02:15 PM</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                  Assigned to <strong class="text-on-surface">Er. Suresh Verma</strong> (Junior Engineer, Jal Sansthan Division II). Mandatory 48-hour redressal SLA triggered with notification dispatched to Ward Councilor.
+                </p>
+<div class="mt-2 flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-label-sm text-label-sm font-semibold">
+                    SLA Clock: 28h remaining
+                  </span>
+<span class="text-label-sm text-outline font-label-sm">Official Contact ID: EMP-JS-4881</span>
+</div>
+</div>
+</div>
+<!-- STAGE 4: Active Current -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-600 text-white flex items-center justify-center ring-4 ring-blue-100 animate-pulse">
+<span class="material-symbols-outlined text-[16px]">engineering</span>
+</div>
+<div class="bg-blue-50/70 rounded-lg p-4 border-2 border-blue-300">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-blue-950">4. Work Order &amp; Crew Dispatch (Current Stage)</span>
+<span class="px-2 py-0.2 rounded-full bg-blue-200 text-blue-900 text-label-sm font-bold">In Progress</span>
+</div>
+<span class="font-label-sm text-label-sm text-blue-800">Oct 14, 2025 • 10:00 AM</span>
+</div>
+<p class="font-body-sm text-body-sm text-blue-900 mt-2">
+                  Field repair crew unit #3 dispatched on-site with mobile repair rig. Initial pump bore diagnosis indicated motor winding burn and rusted flange connection.
+                </p>
+<div class="mt-3 flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2.5 py-1 bg-white text-blue-900 rounded border border-blue-200 shadow-xs">
+<span class="material-symbols-outlined text-[16px] text-blue-700">build</span>
+                    Action: Motor Rewinding &amp; Flange Replacement
+                  </span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-2.5 py-1 bg-white text-blue-900 rounded border border-blue-200 shadow-xs">
+<span class="material-symbols-outlined text-[16px] text-blue-700">group</span>
+                    Crew Lead: Technician Mohan Lal + 3 Staff
+                  </span>
+</div>
+</div>
+</div>
+<!-- STAGE 5: Pending Completion -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-8 top-0.5 w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-surface-container-high text-outline flex items-center justify-center ring-4 ring-surface-container-lowest">
+<span class="material-symbols-outlined text-[16px]">hourglass_empty</span>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-3.5 border border-dashed border-outline-variant/60">
+<div class="flex flex-wrap items-center justify-between gap-1">
+<span class="font-label-lg text-label-lg font-semibold text-outline">5. Photographic Verification &amp; Sign-off</span>
+<span class="font-label-sm text-label-sm text-outline">Pending Completion (Target: Oct 16, 2025)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 mt-1">
+                  Upon test discharge and citizen representative signature, geo-tagged completion imagery will be logged into public record for grievance closure.
+                </p>
+</div>
+</div>
+</div>
+</div>
+<!-- OFFICER INTERACTION & OFFICIAL NOTES BOX -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">chat_bubble</span>
+              Official Redressal Notes &amp; Actions
+            </h2>
+<span class="font-label-sm text-label-sm text-outline">Department of Rural Water Works</span>
+</div>
+<!-- Note from JE Suresh Verma -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shrink-0">
+              SV
+            </div>
+<div class="space-y-1.5 flex-1">
+<div class="flex flex-wrap items-center justify-between gap-2">
+<div>
+<span class="font-title-md text-title-md font-semibold text-on-surface">Er. Suresh Verma</span>
+<span class="text-body-sm text-on-surface-variant"> (Junior Engineer, Jal Sansthan)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Oct 14, 2025 • 01:20 PM</span>
+</div>
+<blockquote class="font-body-md text-body-md text-on-surface bg-white/70 p-3 rounded-lg border-l-4 border-primary">
+                "Excavation and pump extraction completed. Replacement submersible motor ordered from district depot, installation scheduled for tomorrow morning."
+              </blockquote>
+</div>
+</div>
+<!-- Citizen Queries and Action CTAs -->
+<div class="flex flex-wrap items-center gap-3 pt-2">
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-primary transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Send Query to Officer</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border-2 border-primary text-primary font-label-lg text-label-lg hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span>Download Official Acknowledgement Slip (PDF)</span>
+</button>
+<button class="p-2.5 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-colors" title="Print Dossier">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</button>
+</div>
+</div>
+<!-- COMPLAINANT'S ORIGINAL UPLOADED EVIDENCE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/30 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">photo_library</span>
+              Complainant's Original Uploaded Evidence (2 Photos)
+            </h2>
+<span class="font-label-sm text-label-sm text-outline">Captured during filing</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Photo 1: Broken Pump -->
+<div class="group relative rounded-lg overflow-hidden border border-outline-variant/40 bg-surface-container">
+<div class="w-full h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Documentary style civic evidence photograph of a broken municipal iron handpump and dismantled submersible pipe assembly sitting on a dusty rural brick pathway outside a government primary school in India. Harsh midday sunlight casts deep shadows, highlighting the cracked mechanical valve and rusty casing in authentic institutional documentary style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcSEehlKG2Sjse2Rf7bhdce_3eh0wDAph9C6clsGtF5fWrId9CbiPa6nvkd29Fs9pQDz2oVtXB1KvRvxGtonZ2DavBzgsaw92Ci9iCK8AlztGjLol1pg_0iz0RWfn9Patnvb0_Vy-76l7hsIFLclzjYusPN0fa8Lr-IVnf1Xt87wSqKWWgLEStKh4sfvKKDytcUgXpfjtS3y8Rg08fDWpxHVIIgXNGii_KTgEyK_ag4ZTXAMiAEudH')"></div>
+<div class="p-3 bg-surface-container-lowest border-t border-outline-variant/20">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface block">Photo 01: Broken pump assembly &amp; exposed pipe</span>
+<div class="flex items-center justify-between mt-1 text-label-sm font-mono text-outline">
+<span>25.9261° N, 80.8122° E</span>
+<span>Oct 12, 09:24 AM</span>
+</div>
+</div>
+</div>
+<!-- Photo 2: Dry Tap -->
+<div class="group relative rounded-lg overflow-hidden border border-outline-variant/40 bg-surface-container">
+<div class="w-full h-48 bg-cover bg-center group-hover:scale-105 transition-transform duration-300" data-alt="Documentary public service photograph of an empty dry brass community water tap with several empty steel and plastic buckets lined up by villagers on concrete pavement under the warm afternoon sun. The scene captures authentic rural village civic infrastructure with dignified realistic lighting and institutional documentary framing." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCzEjPcnZfDNAnZ-NMq83edoY-E3bhuS4DtuGA1ioKbfQlipERnF2_6QLKlOsmDlOS1FvcbDc1j1Fm31u7LckFCniPx6Oko207LsQ-xw1WLQjXEhoCcBOX-TgduIYy3pbTq0rhHXPefui3WqYi3xdRsdwPZXqlM72NP5zMbJrPLDw11Q4afVXdP0Zdq_I0caFxrbpPUbzlKTmBCe4_zT56Hd6o-azJDLgijfxK0NnwKmUInZ8a4PCzB')"></div>
+<div class="p-3 bg-surface-container-lowest border-t border-outline-variant/20">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface block">Photo 02: Dry community water point &amp; school boundary</span>
+<div class="flex items-center justify-between mt-1 text-label-sm font-mono text-outline">
+<span>25.9263° N, 80.8120° E</span>
+<span>Oct 12, 09:26 AM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ESCALATION & APPEAL NOTICE -->
+<div class="bg-amber-50/80 rounded-xl p-5 border border-amber-200/80 flex items-start gap-4">
+<div class="p-2 bg-amber-100 rounded-lg text-amber-800 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-title-md text-title-md font-bold text-amber-950">Statutory Redressal Guarantee &amp; Auto-Escalation</h3>
+<p class="font-body-sm text-body-sm text-amber-900 leading-relaxed">
+              If unresolved within mandatory SLA (<strong class="font-semibold text-amber-950">Oct 16, 5:00 PM</strong>), grievance will auto-escalate to <span class="underline decoration-amber-400 font-semibold">District Magistrate Redressal Cell</span>. The complainant holds the legal Right to Citizen Redressal under the Uttar Pradesh Janhit Guarantee Act.
+            </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER (Shared Components: Footer) -->
+<footer class="full-width bottom-0 bg-surface-container-high dark:bg-inverse-surface border-t border-outline-variant/40 dark:border-outline-variant/15 mt-16">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Copyright -->
+<div class="space-y-1.5 text-center md:text-left">
+<div class="text-title-md font-title-md font-semibold text-primary dark:text-inverse-primary flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined">shield</span>
+<span>LokSetu Civic Portal</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-surface-variant">
+          © 2025 LokSetu Digital Public Platform. Ministry of Panchayati Raj &amp; Public Grievances. All Rights Reserved.
+        </p>
+</div>
+<!-- Links Cluster -->
+<nav class="flex flex-wrap items-center justify-center gap-y-2 gap-x-4 text-label-md font-label-md text-on-surface-variant dark:text-surface-variant">
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">Citizen Charter</a>
+<span class="text-outline/40">•</span>
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">Grievance Redressal Flow</a>
+<span class="text-outline/40">•</span>
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">Right to Information</a>
+<span class="text-outline/40">•</span>
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">Privacy Policy</a>
+<span class="text-outline/40">•</span>
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">National Portal of India</a>
+<span class="text-outline/40">•</span>
+<a class="hover:text-primary dark:hover:text-inverse-primary underline transition-colors duration-150" href="#">Accessibility Options</a>
+<span class="text-outline/40">•</span>
+<a class="text-primary dark:text-inverse-primary font-semibold underline" href="#">Toll-free 1800-LOK-SETU</a>
+</nav>
+</div>
+</footer>
+</body></html>

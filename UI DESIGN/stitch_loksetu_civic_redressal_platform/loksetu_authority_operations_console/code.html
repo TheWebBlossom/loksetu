@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-surface" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LokSetu Authority &amp; Gram Panchayat Pradhan Operations Console</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#ffdea7",
+            "on-background": "#131e19",
+            "surface-variant": "#d9e5de",
+            "surface": "#f0fcf4",
+            "primary-fixed": "#a4f4c3",
+            "on-tertiary": "#ffffff",
+            "surface-container": "#e4f1e9",
+            "on-secondary": "#ffffff",
+            "surface-container-highest": "#d9e5de",
+            "on-secondary-container": "#007148",
+            "on-tertiary-fixed": "#271900",
+            "on-tertiary-fixed-variant": "#5e4200",
+            "secondary-fixed": "#8af8bd",
+            "on-tertiary-container": "#ffd07c",
+            "inverse-primary": "#88d7a8",
+            "on-secondary-fixed": "#002112",
+            "surface-tint": "#186c45",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#28332e",
+            "surface-container-lowest": "#ffffff",
+            "primary": "#005131",
+            "outline-variant": "#bfc9c0",
+            "inverse-on-surface": "#e7f4ec",
+            "on-primary-fixed": "#002111",
+            "surface-bright": "#f0fcf4",
+            "on-surface": "#131e19",
+            "secondary-fixed-dim": "#6ddba2",
+            "on-surface-variant": "#3f4942",
+            "surface-dim": "#d0ddd5",
+            "on-primary-fixed-variant": "#005232",
+            "on-error-container": "#93000a",
+            "on-error": "#ffffff",
+            "on-primary-container": "#99e9b9",
+            "background": "#f0fcf4",
+            "secondary-container": "#87f5ba",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#005233",
+            "surface-container-low": "#eaf7ef",
+            "primary-fixed-dim": "#88d7a8",
+            "surface-container-high": "#dfebe3",
+            "secondary": "#006c45",
+            "tertiary": "#5d4100",
+            "tertiary-fixed-dim": "#f8bd45",
+            "outline": "#6f7a71",
+            "primary-container": "#176b45",
+            "tertiary-container": "#7b5700"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter-lg": "2rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2.5rem",
+            "margin-lg": "4rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-lg": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full bg-surface text-on-surface flex flex-col font-body-md text-body-md antialiased overflow-x-hidden">
+<!-- Top Navigation Bar (Shared Component: TopNavBar with Authority & Panchayat Active) -->
+<header class="bg-surface-container-lowest border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+<!-- Brand & Emblems -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-3" href="#">
+<img alt="LokSetu Civic Brandmark" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VgbsV0sMSf18LQcqvU2A3SfFNXXEQzdcbkPnk0UfclH-BtAM0TQPKavVFdebAXQtLXz7FTDdm5YynPHR6iinYgE9Secrew7_EvcN5u8e5rKqssmdsFhk-qA9DOAD0IKhjr_CUHu_QVnXAVaTH5Gpul-o0IQvxnBrA1IuLNR15wdL55hPFNWdTBn49NpU0pTWBWxhtHLF_nx67VA4qD3PemaRff-7oBARs4_l7s9zxgI5TyxNpqPXVtD20"/>
+</a>
+<div class="hidden sm:block h-6 w-px bg-outline-variant/40"></div>
+<span class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">verified_user</span>
+          Official Console
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant pb-1 hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">Public Grievances</a>
+<a class="text-on-surface-variant pb-1 hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">Citizen Portal</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-lg text-label-lg" href="#">Authority &amp; Panchayat</a>
+<a class="text-on-surface-variant pb-1 hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">Administration</a>
+</nav>
+<!-- Right Trailing Actions -->
+<div class="flex items-center gap-3">
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Notifications" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Change Language" type="button">
+<span class="material-symbols-outlined text-[20px]">translate</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" title="Emergency Help" type="button">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<div class="h-6 w-px bg-outline-variant/40 mx-1"></div>
+<div class="flex items-center gap-2 pl-1">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-headline-sm flex items-center justify-center font-bold text-xs ring-2 ring-primary/20">
+            RS
+          </div>
+<span class="text-on-surface font-label-md text-label-md font-semibold hidden lg:inline-block">Shri Ram Singh</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Authority Context Banner -->
+<section class="bg-surface-container-high border-b border-outline-variant/40 px-4 sm:px-6 lg:px-8 py-2.5">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-2.5 text-on-surface">
+<div class="flex flex-wrap items-center gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_circle</span>
+<span class="font-label-md text-label-md">
+            Logged in as: <strong class="font-semibold text-primary">Shri Ram Singh</strong> (Gram Pradhan, Rampur GP &amp; Ward Council)
+          </span>
+</div>
+<span class="text-outline-variant hidden sm:inline">•</span>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+          Jurisdiction: <span class="font-semibold text-on-surface">Rampur Gram Panchayat (Ward 1 to 7)</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">shield</span>
+          Designated Local Redressal Authority
+        </span>
+</div>
+<div class="flex items-center gap-2 text-on-error-container bg-error-container/60 px-2.5 py-1 rounded border border-error/20 font-label-sm text-label-sm self-start md:self-auto">
+<span class="material-symbols-outlined text-[16px] text-error">lock</span>
+<span>Security notice: Access strictly restricted to Rampur GP jurisdiction</span>
+</div>
+</div>
+</section>
+<!-- Main Workload Layout: Sidebar + Operational Canvas -->
+<div class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex gap-6 items-start">
+<!-- Left Navigation Rail / Civic Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm p-4 hidden md:flex flex-col gap-6">
+<div>
+<div class="px-3 pb-3 border-b border-outline-variant/20 mb-3">
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Authority Workspace</p>
+<h2 class="font-title-md text-title-md text-primary mt-0.5">Rampur GP Console</h2>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-primary-container text-on-primary-container font-label-lg text-label-lg font-semibold shadow-sm" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+              Overview
+            </span>
+<span class="w-2 h-2 rounded-full bg-on-primary-container"></span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+              Assigned Complaints
+            </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-surface-container-high text-on-surface">14</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">engineering</span>
+              In Progress &amp; Field Crew
+            </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-secondary-fixed text-on-secondary-fixed">5</span>
+</a>
+<a class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+              Awaiting Proof Closure
+            </span>
+<span class="px-2 py-0.5 rounded-full text-xs font-semibold bg-tertiary-fixed text-on-tertiary-fixed font-bold">3</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+            Resolved Register
+          </a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-lg text-label-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">bar_chart</span>
+            Department Reports
+          </a>
+</nav>
+</div>
+<!-- Quick Action Dispatcher -->
+<div class="p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface">
+<div class="flex items-center gap-2 mb-2 text-primary font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+          Ward Field Dispatch
+        </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">Directly assign emergency sanitation or water repair crew to open docket.</p>
+<button class="w-full py-2 px-3 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-secondary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+          Register New Grievance
+        </button>
+</div>
+<!-- Settings & System Footer Links -->
+<div class="pt-3 border-t border-outline-variant/20 space-y-1">
+<a class="flex items-center gap-3 px-3.5 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+          Profile &amp; Ward Settings
+        </a>
+<a class="flex items-center gap-3 px-3.5 py-2 rounded-lg text-error hover:bg-error-container/40 font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+          Logout
+        </a>
+</div>
+</aside>
+<!-- Main Operational Workspace -->
+<main class="flex-1 min-w-0 space-y-6">
+<!-- Operations Dashboard Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">Assigned Grievance Redressal Board</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Real-time docket tracker, departmental escalation telemetry, and verified field closure.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Export Ward Register (PDF)
+          </button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-secondary transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+            Refresh Feeds
+          </button>
+</div>
+</div>
+<!-- Summary Operational Metric Cards (5 Cards Bento Grid) -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5">
+<!-- Metric 1 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Total Assigned</span>
+<span class="material-symbols-outlined text-primary text-[20px]">folder_open</span>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-on-surface font-bold">14</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Complaints in GP Scope</p>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Pending Ack.</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">mark_email_unread</span>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-secondary font-bold">3</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">&lt; 12h SLA Threshold</p>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Active In Progress</span>
+<span class="material-symbols-outlined text-primary text-[20px]">pending_actions</span>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-primary font-bold">5</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Crews Deployed in Ward</p>
+</div>
+</div>
+<!-- Metric 4: Alert / Warning -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-error/30 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-2 h-full bg-error"></div>
+<div class="flex items-center justify-between text-error mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">SLA Escalation</span>
+<span class="material-symbols-outlined text-error text-[20px]">crisis_alert</span>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-error font-bold">1</div>
+<p class="font-body-sm text-body-sm text-error font-semibold mt-0.5">Critical: 8h remaining</p>
+</div>
+</div>
+<!-- Metric 5 -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm flex flex-col justify-between col-span-2 md:col-span-1">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Resolved (Month)</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+</div>
+<div>
+<div class="font-headline-xl text-headline-xl text-on-surface font-bold">28</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Avg turnaround 3.8 days</p>
+</div>
+</div>
+</div>
+<!-- Filter & Search Bar Section -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm space-y-3">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+<!-- Search input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant bg-surface text-on-surface placeholder:text-outline focus:border-primary focus:ring-2 focus:ring-primary/20 font-body-md text-body-md" placeholder="Search by Complaint ID (e.g. LOK-2025), complainant token, or street name..." type="text"/>
+</div>
+<!-- Quick Filters Group -->
+<div class="flex flex-wrap items-center gap-2">
+<select class="px-3 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-md text-label-md focus:border-primary">
+<option value="">Category: All (Water, Drainage, Lights, Roads)</option>
+<option value="water">Drinking Water &amp; Pump</option>
+<option value="drainage">Drainage &amp; Sanitation</option>
+<option value="streetlights">Streetlights &amp; Electrification</option>
+<option value="roads">Roads &amp; Culverts</option>
+</select>
+<select class="px-3 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-md text-label-md focus:border-primary">
+<option value="">Urgency: All</option>
+<option value="emergency">Emergency / Critical</option>
+<option value="high">High</option>
+<option value="normal">Normal</option>
+</select>
+<select class="px-3 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-md text-label-md focus:border-primary">
+<option value="">Status: All Active</option>
+<option value="assigned">Assigned</option>
+<option value="in_progress">In Progress</option>
+<option value="awaiting_proof">Awaiting Proof Closure</option>
+</select>
+<select class="px-3 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface font-label-md text-label-md focus:border-primary">
+<option value="">Crew: Any Assigned</option>
+<option value="jal">Jal Nigam</option>
+<option value="pwd">PWD Rural</option>
+<option value="discom">Electricity Board</option>
+</select>
+</div>
+</div>
+<!-- Filter Tags / Quick Indicators -->
+<div class="flex items-center gap-2 pt-1 font-label-sm text-label-sm text-on-surface-variant flex-wrap">
+<span class="font-semibold text-on-surface">Active Filter Presets:</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface">
+            Ward 1 to 7 Only
+            <button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface">
+            Exclude Archival Records
+            <button class="hover:text-error"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<button class="text-primary font-semibold underline ml-1 hover:text-secondary">Reset all filters</button>
+</div>
+</div>
+<!-- Assigned Complaints Operations Table -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="p-4 border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">list_alt</span>
+<h3 class="font-title-md text-title-md font-bold text-on-surface">Active Grievances in Rampur Jurisdiction</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Showing 3 Priority Focus Dockets of 14 Total</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider border-b border-outline-variant/20">
+<th class="py-3 px-4">Complaint ID</th>
+<th class="py-3 px-4">Category &amp; Issue</th>
+<th class="py-3 px-4">Locality / Landmark</th>
+<th class="py-3 px-4">Complainant Token</th>
+<th class="py-3 px-4">Urgency</th>
+<th class="py-3 px-4">Submission</th>
+<th class="py-3 px-4">Assigned Field Official</th>
+<th class="py-3 px-4">SLA Timer</th>
+<th class="py-3 px-4 text-right">Quick Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+<!-- Row 1: High Urgency -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4 font-mono font-semibold text-primary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">water_drop</span>
+                    LOK-2025-UP-8841
+                  </div>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface">Submersible Pump Breakdown</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm">Drinking Water Supply</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-on-surface">Primary School, Ward 3</div>
+<div class="text-on-surface-variant text-xs">Near Anganwadi Center</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-xs text-on-surface">
+                    CIT-***-7104
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-tertiary-fixed text-on-tertiary-fixed flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    High
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  24 Oct, 09:15 AM
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-on-surface">JE Suresh Verma</div>
+<div class="text-xs text-outline font-label-sm text-label-sm">Jal Nigam Division</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-tertiary">hourglass_bottom</span>
+                    18h left
+                  </div>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-primary h-full w-2/3"></div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-primary hover:bg-primary hover:text-on-primary font-label-sm text-label-sm font-semibold transition-all" type="button">
+                    Update Progress / Crew
+                  </button>
+</td>
+</tr>
+<!-- Row 2: Critical Urgency with Escalation Warning -->
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors">
+<td class="py-3.5 px-4 font-mono font-semibold text-error">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-error">bolt</span>
+                    LOK-2025-UP-9310
+                  </div>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface">Streetlight Phase Wire Snapped</div>
+<div class="text-error font-label-sm text-label-sm font-medium">Public Electrocution Hazard</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-on-surface">Main Bazar Market Crossing</div>
+<div class="text-on-surface-variant text-xs">Panchayat Bhavan Corner</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-xs text-on-surface">
+                    CIT-***-9921
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-error-container text-on-error-container flex items-center gap-1 w-max border border-error/20">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                    Critical
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Today, 06:40 AM
+                </td>
+<td class="py-3.5 px-4">
+<div class="text-outline italic">Pending Crew Callout</div>
+<div class="text-xs text-error font-semibold">Lineman Team 4 alerted</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-error font-bold">
+<span class="material-symbols-outlined text-[16px] text-error">warning</span>
+                    6h left
+                  </div>
+<div class="w-20 bg-error-container h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-error h-full w-4/5"></div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1.5 rounded-lg bg-error text-on-error hover:bg-error/90 font-label-sm text-label-sm font-semibold shadow-sm transition-all flex items-center gap-1.5 ml-auto" type="button">
+<span class="material-symbols-outlined text-[16px]">priority_high</span>
+                    Acknowledge &amp; Assign
+                  </button>
+</td>
+</tr>
+<!-- Row 3: Normal Urgency -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4 font-mono font-semibold text-primary">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">alt_route</span>
+                    LOK-2025-UP-9102
+                  </div>
+</td>
+<td class="py-3.5 px-4">
+<div class="font-semibold text-on-surface">Canal Waterlogging</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm">Drainage Clearance</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="text-on-surface">Link Road Culvert (Ward 5)</div>
+<div class="text-on-surface-variant text-xs">Near Southern Embankment</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container font-mono text-xs text-on-surface">
+                    CIT-***-3349
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-surface-container text-on-surface-variant flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                    Normal
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  23 Oct, 03:20 PM
+                </td>
+<td class="py-3.5 px-4">
+<div class="font-medium text-on-surface">PWD Rural Junior Engineer</div>
+<div class="text-xs text-outline font-label-sm text-label-sm">Site Survey Completed</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-[16px] text-outline">schedule</span>
+                    48h SLA OK
+                  </div>
+<div class="w-20 bg-surface-container-high h-1.5 rounded-full overflow-hidden mt-1">
+<div class="bg-secondary h-full w-1/4"></div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-right whitespace-nowrap">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-label-sm text-label-sm font-semibold transition-all" type="button">
+                    Review Work Order
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-3.5 bg-surface-container-low border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between text-on-surface-variant font-label-sm text-label-sm gap-2">
+<div class="flex items-center gap-2">
+<span>Rows per page: <strong>10</strong></span>
+<span>•</span>
+<span>Showing 1-3 of 14 complaints</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-on-surface disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<span class="px-2 font-semibold text-primary">1</span>
+<button class="p-1 rounded text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Detailed Action Modal / Slide-Out Panel Preview: "Close Grievance with Verifiable Proof" -->
+<div class="rounded-xl bg-surface-container-lowest border-2 border-primary/20 shadow-md p-6 relative overflow-hidden">
+<!-- Header Banner of the modal preview -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-outline-variant/30 gap-3">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">verified</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-secondary-container text-on-secondary-container">
+                  ACTION FLOW: LOK-2025-UP-8841
+                </span>
+<span class="text-xs text-on-surface-variant">Primary School Submersible Water Pump</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary mt-0.5">
+                Close Grievance with Verifiable Proof
+              </h3>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+              Geo-Validator Active
+            </span>
+</div>
+</div>
+<!-- Form fields layout -->
+<form class="mt-5 space-y-5" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Work Order Number -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                Work Order / Sanction Number <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">receipt_long</span>
+<input class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-surface-container-low font-mono font-medium text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 text-body-sm" type="text" value="WO/JN/RAMPUR/2025/OCT-094"/>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">Verified with District Jal Nigam Rural Works Register.</p>
+</div>
+<!-- Supervising Engineer / Official Sign-off -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+                Certifying Official / Junior Engineer <span class="text-error">*</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">badge</span>
+<input class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-surface text-on-surface font-body-sm text-body-sm" readonly="" type="text" value="JE Suresh Verma (Emp ID: JN-UP-88102)"/>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">Digital sign-off token validated via State NIC Gateway.</p>
+</div>
+</div>
+<!-- Resolution Summary -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+              Resolution Summary &amp; Rectification Log <span class="text-error">*</span>
+</label>
+<textarea class="w-full p-3 rounded-lg border border-outline-variant bg-surface text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 font-body-sm text-body-sm" placeholder="Provide factual summary of repair, spare parts replaced, and drinking water testing confirmation..." rows="3">The burnt 5HP single-phase starter coil was replaced with an ISI-certified modular control unit. New brass non-return valve installed. Continuous water discharge tested for 45 minutes; flow restored to the primary school and midday meal handwash stations. Water quality visually clean and certified potability cleared by Gram Panchayat Pradhan and JE.</textarea>
+</div>
+<!-- Mandatory Before / After Photo Upload slots with Geo-tagging validator -->
+<div>
+<label class="block font-label-md text-label-md font-semibold text-on-surface mb-1.5">
+              Mandatory Before / After Photographic Resolution Evidence (Geo-Tag Validated) <span class="text-error">*</span>
+</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Before Photo Slot (Already Uploaded State) -->
+<div class="border border-outline-variant/60 rounded-xl p-3 bg-surface flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase text-outline">Before Rectification</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-xs font-semibold text-on-surface">Complainant Photo</span>
+</div>
+<div class="relative rounded-lg overflow-hidden border border-outline-variant/30 h-36 bg-surface-container flex items-center justify-center group">
+<div class="text-center p-3">
+<span class="material-symbols-outlined text-[36px] text-outline mb-1">image</span>
+<p class="font-body-sm text-body-sm font-semibold text-on-surface">Defective Pump Mechanism</p>
+<p class="font-label-sm text-label-sm text-outline">Geo-Tag: 26.8467° N, 80.9462° E</p>
+</div>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-inverse-surface/80 text-inverse-on-surface font-mono text-[11px]">
+                    24-Oct 09:12 AM
+                  </div>
+</div>
+</div>
+<!-- After Photo Slot (Geo-validated Field Upload) -->
+<div class="border-2 border-dashed border-primary/40 rounded-xl p-3 bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm font-semibold uppercase text-primary">After Rectification (Field Upload)</span>
+<span class="inline-flex items-center gap-1 text-xs font-semibold text-primary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Geo-Match: 99.4%
+                  </span>
+</div>
+<div class="rounded-lg border border-primary/30 h-36 bg-surface-container-lowest flex flex-col items-center justify-center p-4 text-center cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[36px] text-primary mb-1">add_a_photo</span>
+<p class="font-label-md text-label-md font-semibold text-primary">Field Proof Attached: IMG_RESTORE_8841.JPG</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Verified Lat: 26.8468° N, Long: 80.9461° E (Within 12m radius tolerance)</p>
+<span class="mt-2 text-xs font-medium text-secondary underline">Replace Photo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Pradhan Digital Signature PIN / OTP confirm -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">enhanced_encryption</span>
+<div>
+<h4 class="font-title-md text-title-md font-bold text-on-surface">Pradhan Digital Authorization Seal</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enter e-Panchayat Security PIN or Aadhaar OTP to cryptographically sign this resolution ledger.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 w-full sm:w-auto">
+<input class="px-3 py-2 rounded-lg border border-outline-variant bg-surface text-center font-mono tracking-widest text-on-surface focus:border-primary w-36" maxlength="6" placeholder="Enter 6-digit PIN" type="password"/>
+<button class="px-3 py-2 rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-sm text-label-sm font-semibold hover:bg-surface-container-highest whitespace-nowrap" type="button">
+                Resend OTP
+              </button>
+</div>
+</div>
+<!-- Modal Action Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between pt-4 border-t border-outline-variant/30 gap-3">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span>Closure cert will publish instantly to Public Grievance Transparency Portal and SMS citizen alert.</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="px-4 py-2.5 rounded-lg border border-outline-variant text-on-surface hover:bg-surface-container font-label-md text-label-md font-semibold transition-colors" type="button">
+                Save Draft &amp; Request Re-inspection
+              </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold shadow-md hover:bg-secondary flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+                Certify &amp; Close Grievance with Public Proof
+              </button>
+</div>
+</div>
+</form>
+</div>
+</main>
+</div>
+<!-- Civic Accessible Footer (Shared Component: Footer) -->
+<footer class="bg-surface-container-high border-t border-outline-variant/40 mt-auto">
+<div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+<span class="font-title-md text-title-md font-semibold text-primary">LokSetu</span>
+<div class="hidden sm:block h-4 w-px bg-outline-variant/40"></div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          © 2025 LokSetu Digital Public Platform. Ministry of Panchayati Raj &amp; Public Grievances. All Rights Reserved.
+        </p>
+</div>
+<!-- Links Cluster -->
+<nav class="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 font-label-md text-label-md">
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">Citizen Charter</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">Grievance Redressal Flow</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">Right to Information</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">National Portal of India</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-colors" href="#">Accessibility Options</a>
+<a class="text-primary font-semibold underline" href="#">Toll-free 1800-LOK-SETU</a>
+</nav>
+</div>
+</footer>
+</body></html>
